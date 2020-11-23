@@ -15,15 +15,14 @@
  */
 package ru.ilb.jndicontext.core;
 
-import java.util.Hashtable;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -56,7 +55,6 @@ public class JNDIInitialContextFactoryTest {
     @Test
     public void testGetInitialContext() throws Exception {
         System.out.println("getInitialContext");
-        Hashtable environment = null;
         System.setProperty("java.naming.factory.initial", JNDIInitialContextFactory.class.getName());
 
         Context context = new InitialContext();

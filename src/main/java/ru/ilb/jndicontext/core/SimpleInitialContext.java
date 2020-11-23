@@ -15,7 +15,8 @@
  */
 package ru.ilb.jndicontext.core;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 import javax.naming.Context;
 import javax.naming.NamingException;
 
@@ -25,13 +26,13 @@ import javax.naming.NamingException;
  */
 public class SimpleInitialContext extends NotImplementedContext implements Context {
 
-    private static final Hashtable<String, Object> container = new Hashtable<String, Object>();
+    private static final Map<String, Object> CONTAINER = new HashMap<String, Object>();
 
     @Override
     public Object lookup(String name) throws NamingException {
-        Object result = container.get(name);
+        Object result = CONTAINER.get(name);
         if (result == null) {
-            throw new NamingException("any object is not binded to name : " + name.toString());
+            throw new NamingException("any object is not binded to name : " + name);
         }
 
         return result;
@@ -39,7 +40,7 @@ public class SimpleInitialContext extends NotImplementedContext implements Conte
 
     @Override
     public void bind(String name, Object obj) throws NamingException {
-        container.put(name, obj);
+        CONTAINER.put(name, obj);
     }
 
 }

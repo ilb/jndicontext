@@ -28,6 +28,7 @@ import javax.naming.NamingException;
  *
  * @author kuznetsov_me
  */
+@SuppressWarnings("PMD.ReplaceHashtableWithMap")
 abstract class NotImplementedContext implements Context {
 
     @Override

@@ -24,10 +24,13 @@ import javax.naming.spi.InitialContextFactory;
  *
  * @author kuznetsov_me
  */
+@SuppressWarnings("PMD.ReplaceHashtableWithMap")
 public class JNDIInitialContextFactory implements InitialContextFactory {
 
     @Override
+    //CHECKSTYLE:OFF
     public Context getInitialContext(Hashtable<?, ?> environment) throws NamingException {
+    //CHECKSTYLE:ON
         return new SimpleInitialContext();
     }
 }
